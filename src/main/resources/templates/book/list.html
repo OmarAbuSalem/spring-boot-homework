@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+</head>
+<body>
+    <h1>All Books</h1>
+    <ul>
+        <li th:each="book : ${books}">
+            <strong th:text="${book.title}">Book Title</strong>
+            <span> by </span>
+            <span th:text="${book.author.name}">Author Name</span>
+        </li>
+    </ul>
+
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>
