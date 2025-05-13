@@ -51,4 +51,15 @@ public class BookController {
 
         return "redirect:/books";
     }
+
+    @GetMapping("/books/{id}")
+    public String viewBookDetails(@PathVariable Long id, Model model) {
+        Book book = books.stream()
+                .filter(b -> b.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+
+        model.addAttribute("book", book);
+        return "book/details";
+    }
 }
